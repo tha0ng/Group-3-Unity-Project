@@ -7,8 +7,18 @@ public class StartMenu : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("SampleScene");
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void BackBtn()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void InstructionBtn()
+    {
+        SceneManager.LoadScene("Instruction");
     }
 
     public void QuitGame()
