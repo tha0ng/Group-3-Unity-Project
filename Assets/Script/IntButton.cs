@@ -9,6 +9,8 @@ public class IntButton : MonoBehaviour
     
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = 0;
         lastSelect = new GameObject();
     }
 
