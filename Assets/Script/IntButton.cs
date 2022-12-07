@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class IntButton : MonoBehaviour
+public class IntButton : MonoBehaviour //this scripts the buttons using the Event System
 {
     private GameObject lastSelect;
     

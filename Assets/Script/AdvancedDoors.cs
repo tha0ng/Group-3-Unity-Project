@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AdvancedDoors : MonoBehaviour
+public class AdvancedDoors : MonoBehaviour //this script refers to locking and unlokcing doors
 {
 
     public Animator door;
@@ -28,35 +28,35 @@ public class AdvancedDoors : MonoBehaviour
 
 
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other) //when player collides with the door
     {
-        if (other.gameObject.tag == "Reach" && doorisClosed)
+        if (other.gameObject.tag == "Reach" && doorisClosed) //if player is in reach and door is in closed state
         {
-            inReach = true;
-            openText.SetActive(true);
+            inReach = true; //set in reach to true
+            openText.SetActive(true); //Set the text on screen : Open [E]
         }
 
-        if (other.gameObject.tag == "Reach" && doorisOpen)
+        if (other.gameObject.tag == "Reach" && doorisOpen) //if player is in reach and door is currently open
         {
-            inReach = true;
-            closeText.SetActive(true);
+            inReach = true; //set in reach to true
+            closeText.SetActive(true); //set text appear on screen: Close[E]
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other) //if player is not colliding with the door
     {
-        if (other.gameObject.tag == "Reach")
+        if (other.gameObject.tag == "Reach") //if player is not in reach
         {
-            inReach = false;
-            openText.SetActive(false);
+            inReach = false; //set in reach to false
+            openText.SetActive(false); //remove all texts on screen
             lockedText.SetActive(false);
             closeText.SetActive(false);
         }
     }
 
-    void Start()
+    void Start() //when game starts
     {
-        inReach = false;
+        inReach = false; //every text is set to false and every door is in closed state
         doorisClosed = true;
         doorisOpen = false;
         closeText.SetActive(false);
@@ -66,7 +66,7 @@ public class AdvancedDoors : MonoBehaviour
 
 
 
-    void Update()
+    void Update() //locking and unlocking doors
     {
         if (lockOB.activeInHierarchy)
         {
@@ -82,10 +82,10 @@ public class AdvancedDoors : MonoBehaviour
 
         if (inReach && keyOB.activeInHierarchy && Input.GetButtonDown("Interact"))
         {
-            unlockedSound.Play();
-            locked = false;
-            keyOB.SetActive(false);
-            StartCoroutine(unlockDoor());
+            unlockedSound.Play(); //play the unlocked sound
+            locked = false; //disable locked state
+            keyOB.SetActive(false); 
+            StartCoroutine(unlockDoor()); //start opening door
         }
 
         if (inReach && doorisClosed && unlocked && Input.GetButtonDown("Interact"))
@@ -98,7 +98,7 @@ public class AdvancedDoors : MonoBehaviour
             doorisClosed = false;
         }
 
-        else if (inReach && doorisOpen && unlocked && Input.GetButtonDown("Interact"))
+        else if (inReach && doorisOpen && unlocked && Input.GetButtonDown("Interact")) 
         {
             door.SetBool("OpenDoor", false);
             door.SetBool("CloseDoor", true);
@@ -110,20 +110,20 @@ public class AdvancedDoors : MonoBehaviour
 
         if (inReach && locked && Input.GetButtonDown("Interact"))
         {
-            openText.SetActive(false);
-            lockedText.SetActive(true);
-            lockedSound.Play();
+            openText.SetActive(false); //remove text open
+            lockedText.SetActive(true); //set state to locked
+            lockedSound.Play(); //play locked sound
         }
 
     }
 
     IEnumerator unlockDoor()
     {
-        yield return new WaitForSeconds(.05f);
+        yield return new WaitForSeconds(.05f); //delay
         {
 
-            unlocked = true;
-            lockOB.SetActive(false);
+            unlocked = true; //door is unlocked
+            lockOB.SetActive(false); //remove the locked state
         }
     }
 

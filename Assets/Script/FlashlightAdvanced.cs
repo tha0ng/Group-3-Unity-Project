@@ -35,7 +35,7 @@ public class FlashlightAdvanced : MonoBehaviour //these will appear in the edito
     void Update() //update flashlight
     {
         text.text = "Flashlight " + lifetime.ToString("0") + "%"; //lifetime text appear on the top left corner (Flashlight 100%)
-        batteryText.text = batteries.ToString(); //battery text (20)
+        batteryText.text = "Batteries " + batteries.ToString(); //battery text that appears on screen
 
         if(Input.GetButtonDown("flashlight") && off) //toggle flashlight off
         {

@@ -12,7 +12,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Instruction.unity
     guid: 830be3a1ebc265e48a8a42deb9cbd873
   - enabled: 1
+    path: Assets/Scenes/Introduction Scene.unity
+    guid: 0f610d73548aa47bab949aad49fffad7
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/LightHouseEnding.unity
+    guid: 12832e4f0734b4a86870a3bd4cf6d288
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 9ec11f7a1f07145bfab5499d92477017
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

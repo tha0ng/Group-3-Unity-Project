@@ -5,31 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-    void Start()
+    void Start() //when game starts
     {
-        Cursor.visible = true;
-        Cursor.lockState = 0;
+        Cursor.visible = true; //set the mouse cursor to be activated
+        Cursor.lockState = 0; //don't lock the mouse
     }
 
-    public void StartGame()
+    public void StartGame() //when player choose "Play"
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Introduction Scene"); //load the introduction scene
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void BackBtn()
+    public void BackBtn() //if player choose back button in the instruction menu
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Menu"); //load the menu screen
     }
 
-    public void InstructionBtn()
+    public void InstructionBtn() //if player choose "Instruction"
     {
-        SceneManager.LoadScene("Instruction");
+        SceneManager.LoadScene("Instruction"); //load instruction scene
     }
 
-    public void QuitGame()
+    public void QuitGame() //if player choose "Exit"
     {
-        Application.Quit();
+        Application.Quit(); //quit the game
     }
 }
 
